@@ -40,9 +40,7 @@ namespace MyUserManagement
 
         private void logOutToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            Infrastructure.Utility.AuthenticatedUser = null;
             Close();
-            Infrastructure.Utility.LoginForm.Show();
         }
 
         private UpdateProfileForm updateForm;
@@ -80,6 +78,7 @@ namespace MyUserManagement
 
         private void newUserRegToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+            Infrastructure.Utility.AdminRegisterForm.MdiParent = this;
             Infrastructure.Utility.AdminRegisterForm.Show();
         }
 
@@ -123,14 +122,43 @@ namespace MyUserManagement
             }
         }
 
-        private void MainForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        private void MainForm_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            if (e.CloseReason == System.Windows.Forms.CloseReason.UserClosing)
+            {
+                System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Are you sure to logout?"
+                                , "Logout Warning"
+                                , System.Windows.Forms.MessageBoxButtons.YesNo
+                                , System.Windows.Forms.MessageBoxIcon.Warning
+                                , System.Windows.Forms.MessageBoxDefaultButton.Button2);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    Infrastructure.Utility.AuthenticatedUser = null;
+                    Infrastructure.Utility.LoginForm.Show();
+                }
+                else
+                {
+                    e.Cancel=true;
+                }
+            }
+            else
+            {
+                System.Windows.Forms.Application.Exit();
+            }
         }
 
         private void wareHouseToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+            Infrastructure.Utility.WarehouseForm.MdiParent = this;
             Infrastructure.Utility.WarehouseForm.Show();
+        }
+
+        private void calculatorToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Infrastructure.Utility.Calculator.MdiParent = this;
+            
+            Infrastructure.Utility.Calculator.Show();
+            Infrastructure.Utility.Calculator.Location = new System.Drawing.Point(920, 0);
         }
     }
 }

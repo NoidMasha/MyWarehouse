@@ -73,6 +73,19 @@
             }
         }
 
+        private static MyUserManagement.MyCalculator.Calculator calculator;
+        public static MyUserManagement.MyCalculator.Calculator Calculator
+        {
+            get
+            {
+                if (calculator == null || calculator.IsDisposed)
+                {
+                    calculator = new MyUserManagement.MyCalculator.Calculator();
+                }
+                return calculator;
+            }
+        }
+
         /// <summary>
         /// Checks a string and returns true if it doesn't contains invalid characters for username
         /// </summary>

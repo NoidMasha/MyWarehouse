@@ -38,6 +38,12 @@
             this.adminLabel = new System.Windows.Forms.Label();
             this.activeLabel = new System.Windows.Forms.Label();
             this.activeComboBox = new System.Windows.Forms.ComboBox();
+            this.stuffDataGridView = new MyUserManagement.Infrastructure.BaseDataGridView();
+            this.StuffName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GeneralNember = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.stuffDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // fullNameLabel
@@ -144,11 +150,46 @@
             this.activeComboBox.TabIndex = 8;
             this.activeComboBox.SelectedIndexChanged += new System.EventHandler(this.activeComboBox_SelectedIndexChanged);
             // 
+            // stuffDataGridView
+            // 
+            this.stuffDataGridView.BackgroundColor = System.Drawing.Color.SkyBlue;
+            this.stuffDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.stuffDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StuffName,
+            this.GeneralNember,
+            this.OrderCode,
+            this.Quantity});
+            this.stuffDataGridView.Location = new System.Drawing.Point(13, 80);
+            this.stuffDataGridView.Name = "stuffDataGridView";
+            this.stuffDataGridView.Size = new System.Drawing.Size(444, 150);
+            this.stuffDataGridView.TabIndex = 9;
+            // 
+            // StuffName
+            // 
+            this.StuffName.HeaderText = "Name";
+            this.StuffName.Name = "StuffName";
+            // 
+            // GeneralNember
+            // 
+            this.GeneralNember.HeaderText = "GeneralNember";
+            this.GeneralNember.Name = "GeneralNember";
+            // 
+            // OrderCode
+            // 
+            this.OrderCode.HeaderText = "Order Code";
+            this.OrderCode.Name = "OrderCode";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
             // WarehouseForm
             // 
             this.AcceptButton = this.searchButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.stuffDataGridView);
             this.Controls.Add(this.activeComboBox);
             this.Controls.Add(this.activeLabel);
             this.Controls.Add(this.adminLabel);
@@ -167,6 +208,7 @@
             this.ShowIcon = false;
             this.Text = "Warehouse";
             this.Load += new System.EventHandler(this.UsersListForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.stuffDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,5 +226,10 @@
         private System.Windows.Forms.Label adminLabel;
         private System.Windows.Forms.Label activeLabel;
         private System.Windows.Forms.ComboBox activeComboBox;
+        private Infrastructure.BaseDataGridView stuffDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StuffName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GeneralNember;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
     }
 }

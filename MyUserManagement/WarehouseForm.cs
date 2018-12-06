@@ -114,6 +114,8 @@ namespace MyUserManagement
             usersListBox.ValueMember = "Id";
             usersListBox.DisplayMember = "DisplayName";
             usersListBox.DataSource = users;
+
+            stuffDataGridView.DataSource = users;
         }
 
         private void usersListBox_DoubleClick(object sender, System.EventArgs e)
