@@ -158,7 +158,9 @@ namespace MyUserManagement
             Infrastructure.Utility.Calculator.MdiParent = this;
             
             Infrastructure.Utility.Calculator.Show();
-            Infrastructure.Utility.Calculator.Location = new System.Drawing.Point(920, 0);
+            Infrastructure.Utility.Calculator.Location = new System.Drawing.Point
+                (this.Size.Width-Infrastructure.Utility.Calculator.Size.Width -22, 0);
+            Infrastructure.Utility.Calculator.Anchor = System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Top;
         }
     }
 }
