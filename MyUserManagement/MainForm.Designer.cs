@@ -24,7 +24,7 @@
         {
             this.menuStrip1 = new MyUserManagement.Infrastructure.BaseMenuStrip();
             this.fileToolStripMenuItem = new MyUserManagement.Infrastructure.BaseToolStripMenuItem();
-            this.addNewStuffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wareHouseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.calculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +59,7 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewStuffToolStripMenuItem,
+            this.newItemToolStripMenuItem,
             this.wareHouseToolStripMenuItem,
             this.toolStripSeparator1,
             this.calculatorToolStripMenuItem,
@@ -70,12 +70,13 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
-            // addNewStuffToolStripMenuItem
+            // newItemToolStripMenuItem
             // 
-            this.addNewStuffToolStripMenuItem.Name = "addNewStuffToolStripMenuItem";
-            this.addNewStuffToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.addNewStuffToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.addNewStuffToolStripMenuItem.Text = "New Stuff";
+            this.newItemToolStripMenuItem.Name = "newItemToolStripMenuItem";
+            this.newItemToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newItemToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.newItemToolStripMenuItem.Text = "New Item";
+            this.newItemToolStripMenuItem.Click += new System.EventHandler(this.newItemToolStripMenuItem_Click);
             // 
             // wareHouseToolStripMenuItem
             // 
@@ -224,7 +225,7 @@
         private System.Windows.Forms.ToolStripMenuItem updateProfileToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem newUserRegToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addNewStuffToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wareHouseToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem calculatorToolStripMenuItem;

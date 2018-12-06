@@ -14,6 +14,6 @@
 
 		public System.Data.Entity.DbSet<User> Users { get; set; }
 
-        public System.Data.Entity.DbSet<Stuff> Stuffs { get; set; }
+        public System.Data.Entity.DbSet<Item> Items { get; set; }
     }
 }

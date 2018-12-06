@@ -6,12 +6,12 @@ namespace MyUserManagement
         public MainForm()
         {
             InitializeComponent();
-
         }
 
         public void InitializeMainForm()
         {
             adminToolStripMenuItem.Visible = Infrastructure.Utility.AuthenticatedUser.IsAdmin;
+            newItemToolStripMenuItem.Enabled = Infrastructure.Utility.AuthenticatedUser.IsAdmin;
 
             if (string.IsNullOrWhiteSpace(Infrastructure.Utility.AuthenticatedUser.FullName))
             {
@@ -149,8 +149,8 @@ namespace MyUserManagement
 
         private void wareHouseToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            Infrastructure.Utility.WarehouseForm.MdiParent = this;
-            Infrastructure.Utility.WarehouseForm.Show();
+            Infrastructure.Utility.ItemsListForm.MdiParent = this;
+            Infrastructure.Utility.ItemsListForm.Show();
         }
 
         private void calculatorToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -159,8 +159,13 @@ namespace MyUserManagement
             
             Infrastructure.Utility.Calculator.Show();
             Infrastructure.Utility.Calculator.Location = new System.Drawing.Point
-                (this.Size.Width-Infrastructure.Utility.Calculator.Size.Width -22, 0);
+                (this.Size.Width - Infrastructure.Utility.Calculator.Size.Width - 22, 0);
             Infrastructure.Utility.Calculator.Anchor = System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Top;
+        }
+
+        private void newItemToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Infrastructure.Utility.NewItemForm.Show();
         }
     }
 }

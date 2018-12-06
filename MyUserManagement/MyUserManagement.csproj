@@ -62,6 +62,18 @@
     <Compile Include="Admin\AdminRegisterForm.Designer.cs">
       <DependentUpon>AdminRegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\NewItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\NewItemForm.Designer.cs">
+      <DependentUpon>NewItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpdateItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\UpdateItemForm.Designer.cs">
+      <DependentUpon>UpdateItemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\UpdateUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,7 +138,7 @@
     <Compile Include="ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Stuff.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="MyCalculator\MyButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -162,14 +174,20 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="WarehouseForm.cs">
+    <Compile Include="ItemsListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WarehouseForm.Designer.cs">
-      <DependentUpon>WarehouseForm.cs</DependentUpon>
+    <Compile Include="ItemsListForm.Designer.cs">
+      <DependentUpon>ItemsListForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Admin\AdminRegisterForm.resx">
       <DependentUpon>AdminRegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\NewItemForm.resx">
+      <DependentUpon>NewItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\UpdateItemForm.resx">
+      <DependentUpon>UpdateItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\UpdateUserForm.resx">
       <DependentUpon>UpdateUserForm.cs</DependentUpon>
@@ -214,8 +232,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WarehouseForm.resx">
-      <DependentUpon>WarehouseForm.cs</DependentUpon>
+    <EmbeddedResource Include="ItemsListForm.resx">
+      <DependentUpon>ItemsListForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

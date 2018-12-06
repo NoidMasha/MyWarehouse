@@ -60,16 +60,29 @@
             }
         }
 
-        private static MyUserManagement.WarehouseForm warehouseForm;
-        public static MyUserManagement.WarehouseForm WarehouseForm
+        private static MyUserManagement.ItemsListForm itemsListForm;
+        public static MyUserManagement.ItemsListForm ItemsListForm
         {
             get
             {
-                if (warehouseForm == null || warehouseForm.IsDisposed)
+                if (itemsListForm == null || itemsListForm.IsDisposed)
                 {
-                    warehouseForm = new MyUserManagement.WarehouseForm();
+                    itemsListForm = new MyUserManagement.ItemsListForm();
                 }
-                return warehouseForm;
+                return itemsListForm;
+            }
+        }
+
+        private static MyUserManagement.Admin.NewItemForm newItemForm;
+        public static MyUserManagement.Admin.NewItemForm NewItemForm
+        {
+            get
+            {
+                if (newItemForm == null || newItemForm.IsDisposed)
+                {
+                    newItemForm = new MyUserManagement.Admin.NewItemForm();
+                }
+                return newItemForm;
             }
         }
 
