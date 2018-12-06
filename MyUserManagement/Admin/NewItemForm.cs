@@ -27,46 +27,109 @@ namespace MyUserManagement.Admin
             usedQuantityTextBox.Clear();
         }
         
-
-       
-        private void saveButton_Click(object sender, System.EventArgs e)
+        private string checkInputData()
         {
-            string errorMessages = string.Empty;
+            string errorMessage = string.Empty;
 
             if (engNameTextBox.Text.Length > 30)
             {
-                errorMessages = "English name can be maximum 30 characters!";
+                errorMessage = "English name can be maximum 30 characters!";
+            }
+            else if (string.IsNullOrWhiteSpace(engNameTextBox.Text))
+            {
+                errorMessage = "English name must be filled!";
             }
 
             if (persNameTextBox.Text.Length > 30)
             {
-                if (errorMessages != string.Empty)
+                if (errorMessage != string.Empty)
                 {
-                    errorMessages += System.Environment.NewLine;
+                    errorMessage += System.Environment.NewLine;
                 }
 
-                errorMessages += "Persian name can be maximum 30 characters!";
+                errorMessage += "Persian name can be maximum 30 characters!";
+            }
+            else if (string.IsNullOrWhiteSpace(persNameTextBox.Text))
+            {
+                if (errorMessage != string.Empty)
+                {
+                    errorMessage += System.Environment.NewLine;
+                }
+                errorMessage = "Persian name must be filled!";
             }
 
             if (generalCodeTextBox.Text.Length != 13)
             {
-                if (errorMessages != string.Empty)
+                if (errorMessage != string.Empty)
                 {
-                    errorMessages += System.Environment.NewLine;
+                    errorMessage += System.Environment.NewLine;
                 }
 
-                errorMessages += "General code must be 13 digits!";
+                errorMessage += "General code must be 13 digits!";
             }
 
             if (orderCodeTextBox.Text.Length > 30)
             {
-                if (errorMessages != string.Empty)
+                if (errorMessage != string.Empty)
                 {
-                    errorMessages += System.Environment.NewLine;
+                    errorMessage += System.Environment.NewLine;
                 }
 
-                errorMessages += "Order code can be maximum 30 characters!";
+                errorMessage += "Order code can be maximum 30 characters!";
             }
+            else if (string.IsNullOrWhiteSpace(orderCodeTextBox.Text))
+            {
+                if (errorMessage != string.Empty)
+                {
+                    errorMessage += System.Environment.NewLine;
+                }
+                errorMessage = "Order code must be filled!";
+            }
+
+            if (string.IsNullOrWhiteSpace(typeTextBox.Text))
+            {
+                if (errorMessage != string.Empty)
+                {
+                    errorMessage += System.Environment.NewLine;
+                }
+                errorMessage = "type must be filled!";
+            }
+
+            if (string.IsNullOrWhiteSpace(addressTextBox.Text))
+            {
+                if (errorMessage != string.Empty)
+                {
+                    errorMessage += System.Environment.NewLine;
+                }
+                errorMessage = "Address must be filled!";
+            }
+
+            if (string.IsNullOrWhiteSpace(currentQuantityTextBox.Text))
+            {
+                if (errorMessage != string.Empty)
+                {
+                    errorMessage += System.Environment.NewLine;
+                }
+                errorMessage = "Current quantity must be filled!";
+            }
+
+            if (string.IsNullOrWhiteSpace(currentQuantityTextBox.Text))
+            {
+                if (errorMessage != string.Empty)
+                {
+                    errorMessage += System.Environment.NewLine;
+                }
+                errorMessage = "Used quantity must be filled!";
+            }
+
+            return errorMessage;
+        }
+       
+        private void saveButton_Click(object sender, System.EventArgs e)
+        {
+
+
+            string errorMessages = checkInputData();
 
             if (errorMessages != string.Empty)
             {

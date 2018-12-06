@@ -11,7 +11,7 @@
             (AllowEmptyStrings = false)]
 
         [System.ComponentModel.DataAnnotations.StringLength
-            (maximumLength: 30, MinimumLength = 2)]
+            (maximumLength: 30)]
 
         [System.ComponentModel.DataAnnotations.Schema.Index
             (IsUnique = true)]
@@ -23,7 +23,7 @@
             (AllowEmptyStrings = false)]
 
         [System.ComponentModel.DataAnnotations.StringLength
-            (maximumLength: 30, MinimumLength = 2)]
+            (maximumLength: 30)]
 
         [System.ComponentModel.DataAnnotations.Schema.Index
             (IsUnique = true)]
@@ -65,7 +65,7 @@
 
         // **********
         [System.ComponentModel.DataAnnotations.Required
-            (AllowEmptyStrings = true)]
+            (AllowEmptyStrings = false)]
 
         [System.ComponentModel.DataAnnotations.Schema.Index
             (IsUnique = false)]
