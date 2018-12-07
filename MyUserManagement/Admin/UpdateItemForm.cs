@@ -17,6 +17,7 @@ namespace MyUserManagement.Admin
         }
 
         public Models.Item SelectedItem { get; set; }
+        public int SelectedCellColumn { get; set; }
 
         private void UpdateItemForm_Load(object sender, System.EventArgs e)
         {
@@ -63,6 +64,37 @@ namespace MyUserManagement.Admin
                     databaseContext.Dispose();
                     databaseContext = null;
                 }
+
+                //*******************************************************************************
+                switch (SelectedCellColumn)
+                {
+                    case 0:
+                        ActiveControl = engNameTextBox;
+                        break;
+                    case 1:
+                        ActiveControl = persNameTextBox;
+                        break;
+                    case 2:
+                        ActiveControl = generalCodeTextBox;
+                        break;
+                    case 3:
+                        ActiveControl = orderCodeTextBox;
+                        break;
+                    case 4:
+                        ActiveControl = currentQuantityTextBox;
+                        break;
+                    case 5:
+                        ActiveControl = usedQuantityTextBox;
+                        break;
+                    case 6:
+                        ActiveControl = typeComboBox;
+                        break;
+                    case 7:
+                        ActiveControl = addressRegalComboBox;
+                        break;
+                }
+
+                //*******************************************************************************
             }
         }
 

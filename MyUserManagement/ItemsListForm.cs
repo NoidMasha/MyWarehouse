@@ -133,11 +133,20 @@ namespace MyUserManagement
             {
                 Models.Item selectedItem = ItemsDataGridView.CurrentRow.DataBoundItem as Models.Item;
 
+
+                //*******************************************************************************************
+                System.Drawing.Point selectedCell = ItemsDataGridView.CurrentCellAddress;
+                //*******************************************************************************************
+
                 if (selectedItem != null)
                 {
                     Admin.UpdateItemForm updateItemForm = new Admin.UpdateItemForm()
                     {
-                        SelectedItem = selectedItem
+                        SelectedItem = selectedItem,
+
+                        //*************************************
+                        SelectedCellColumn = selectedCell.X
+                        //*************************************
                     };
 
                     updateItemForm.ShowDialog();

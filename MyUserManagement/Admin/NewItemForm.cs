@@ -176,6 +176,7 @@ namespace MyUserManagement.Admin
                         Infrastructure.Utility.ItemsListForm.Show();
                         Infrastructure.Utility.ItemsListForm.GeneralCodeText = generalCodeTextBox.Text;
                         Infrastructure.Utility.ItemsListForm.search();
+                        Infrastructure.Utility.ItemsListForm.GeneralCodeText = string.Empty;
 
                     }
 
