@@ -165,6 +165,7 @@ namespace MyUserManagement
 
         private void newItemToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+            Infrastructure.Utility.NewItemForm.MdiParent = this;
             Infrastructure.Utility.NewItemForm.Show();
         }
     }

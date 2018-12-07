@@ -74,8 +74,6 @@ namespace MyUserManagement
 
             #region Runing Startup Form and then Disposing!
             LoginForm startupForm = Infrastructure.Utility.LoginForm;
-            startupForm.usernameText = "navidmasha";
-            startupForm.passwordText = "Navid1234";
 
             System.Windows.Forms.Application.Run(startupForm);
             

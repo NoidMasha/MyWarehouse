@@ -18,14 +18,7 @@ namespace MyUserManagement
             }
         }
 
-        public string passwordText
-        {
-            set
-            {
-                passwordTextBox.Text = value;
-            }
-        }
-
+        
         public void clearPassword()
         {
             passwordTextBox.Clear();

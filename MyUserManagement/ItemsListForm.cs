@@ -13,8 +13,15 @@ namespace MyUserManagement
             search();
         }
 
+        public string GeneralCodeText
+        {
+            set
+            {
+                generalCodeTextBox.Text = value;
+            }
+        }
 
-        private void search()
+        public void search()
         {
             System.Collections.Generic.List<Models.Item> items = null;
 
@@ -162,10 +169,10 @@ namespace MyUserManagement
                 {
                     databaseContext = new Models.DatabaseContext();
 
-                    foreach (var selectedRow in ItemsDataGridView.SelectedRows)
+                    for (int selectedRowIndex=0; selectedRowIndex < ItemsDataGridView.SelectedRows.Count; selectedRowIndex++)
                     {
-                        Models.Item selectedItem = selectedRow as Models.Item;
-
+                        Models.Item selectedItem = ItemsDataGridView.SelectedRows[selectedRowIndex].DataBoundItem as Models.Item;
+                            
                         if (selectedItem != null)
                         {
                             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show($"Are you sure to delete [{selectedItem.EnglishName}] ?"

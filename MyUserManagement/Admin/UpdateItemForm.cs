@@ -38,8 +38,16 @@ namespace MyUserManagement.Admin
                     persNameTextBox.Text = foundedItem.PersianName;
                     generalCodeTextBox.Text = foundedItem.GeneralCode;
                     orderCodeTextBox.Text = foundedItem.OrderCode;
-                    addressTextBox.Text = foundedItem.Address;
-                    typeTextBox.Text = foundedItem.Type;
+
+                    addressRegalComboBox.SelectedIndex =
+                        addressRegalComboBox.FindStringExact(foundedItem.Address.Substring(0, 1));
+                    addressFloorComboBox.SelectedIndex =
+                        addressFloorComboBox.FindStringExact(foundedItem.Address.Substring(2, 1));
+                    addressTruncComboBox.SelectedIndex =
+                        addressTruncComboBox.FindStringExact(foundedItem.Address.Substring(4, 1));
+
+                    typeComboBox.SelectedIndex = typeComboBox.FindStringExact(foundedItem.Type);
+
                     currentQuantityTextBox.Text = foundedItem.CurrentQuantity.ToString();
                     usedQuantityTextBox.Text = foundedItem.UsedQuantity.ToString();
                 }
@@ -68,7 +76,7 @@ namespace MyUserManagement.Admin
             }
             else if (string.IsNullOrWhiteSpace(engNameTextBox.Text))
             {
-                errorMessage = "English name must be filled!";
+                errorMessage += "English name must be filled!";
             }
 
             if (persNameTextBox.Text.Length > 30)
@@ -86,17 +94,17 @@ namespace MyUserManagement.Admin
                 {
                     errorMessage += System.Environment.NewLine;
                 }
-                errorMessage = "Persian name must be filled!";
+                errorMessage += "Persian name must be filled!";
             }
 
-            if (generalCodeTextBox.Text.Length != 13)
+            if (!Infrastructure.Utility.validNumber(generalCodeTextBox.Text, 13, 13))
             {
                 if (errorMessage != string.Empty)
                 {
                     errorMessage += System.Environment.NewLine;
                 }
 
-                errorMessage += "General code must be 13 digits!";
+                errorMessage += "General code must be 13 Digits!";
             }
 
             if (orderCodeTextBox.Text.Length > 30)
@@ -114,34 +122,25 @@ namespace MyUserManagement.Admin
                 {
                     errorMessage += System.Environment.NewLine;
                 }
-                errorMessage = "Order code must be filled!";
+                errorMessage += "Order code must be filled!";
             }
 
-            if (string.IsNullOrWhiteSpace(typeTextBox.Text))
+            if (addressRegalComboBox.SelectedIndex == -1 || addressFloorComboBox.SelectedIndex == -1 || addressTruncComboBox.SelectedIndex == -1)
             {
                 if (errorMessage != string.Empty)
                 {
                     errorMessage += System.Environment.NewLine;
                 }
-                errorMessage = "type must be filled!";
+                errorMessage += "Select address completely!";
             }
 
-            if (string.IsNullOrWhiteSpace(addressTextBox.Text))
+            if (typeComboBox.SelectedIndex == -1)
             {
                 if (errorMessage != string.Empty)
                 {
                     errorMessage += System.Environment.NewLine;
                 }
-                errorMessage = "Address must be filled!";
-            }
-
-            if (string.IsNullOrWhiteSpace(currentQuantityTextBox.Text))
-            {
-                if (errorMessage != string.Empty)
-                {
-                    errorMessage += System.Environment.NewLine;
-                }
-                errorMessage = "Current quantity must be filled!";
+                errorMessage += "Select type!";
             }
 
             if (string.IsNullOrWhiteSpace(currentQuantityTextBox.Text))
@@ -150,7 +149,32 @@ namespace MyUserManagement.Admin
                 {
                     errorMessage += System.Environment.NewLine;
                 }
-                errorMessage = "Used quantity must be filled!";
+                errorMessage += "Current quantity must be filled!";
+            }
+            else if (!Infrastructure.Utility.validNumber(currentQuantityTextBox.Text, 1, 4))
+            {
+                if (errorMessage != string.Empty)
+                {
+                    errorMessage += System.Environment.NewLine;
+                }
+                errorMessage += "Current quantity must be a number between 0-9999!";
+            }
+
+            if (string.IsNullOrWhiteSpace(usedQuantityTextBox.Text))
+            {
+                if (errorMessage != string.Empty)
+                {
+                    errorMessage += System.Environment.NewLine;
+                }
+                errorMessage += "Used quantity must be filled!";
+            }
+            else if (!Infrastructure.Utility.validNumber(usedQuantityTextBox.Text, 1, 4))
+            {
+                if (errorMessage != string.Empty)
+                {
+                    errorMessage += System.Environment.NewLine;
+                }
+                errorMessage += "used quantity must be a number between 0-9999!";
             }
 
             return errorMessage;
@@ -184,8 +208,9 @@ namespace MyUserManagement.Admin
                     foundedItem.PersianName = persNameTextBox.Text;
                     foundedItem.GeneralCode = generalCodeTextBox.Text;
                     foundedItem.OrderCode = orderCodeTextBox.Text;
-                    foundedItem.Address = addressTextBox.Text;
-                    foundedItem.Type = typeTextBox.Text;
+                    foundedItem.Address =
+                        $"{addressRegalComboBox.SelectedItem.ToString()}-{addressFloorComboBox.SelectedItem.ToString()}-{addressTruncComboBox.SelectedItem.ToString()}";
+                    foundedItem.Type = typeComboBox.SelectedItem.ToString();
                     foundedItem.CurrentQuantity = int.Parse(currentQuantityTextBox.Text);
                     foundedItem.UsedQuantity = int.Parse(usedQuantityTextBox.Text);
 

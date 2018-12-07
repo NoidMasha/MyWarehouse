@@ -124,6 +124,24 @@
         /// <param name="min">Minimum characters</param>
         /// <param name="max">Maximum characters</param>
         /// <returns></returns>
+        public static bool validNumber(string text, int min, int max)
+        {
+            if (text.Length >= min && text.Length <= max)
+            {
+                System.Text.RegularExpressions.Regex r = new System.Text.RegularExpressions.Regex("[^0-9]",
+                    System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                return !r.IsMatch(text);
+            }
+            else { return false; }
+        }
+
+        /// <summary>
+        /// Checks a string and returns true if it doesn't contains invalid characters for username
+        /// </summary>
+        /// <param name="text">String to check</param>
+        /// <param name="min">Minimum characters</param>
+        /// <param name="max">Maximum characters</param>
+        /// <returns></returns>
         public static bool validPassword(string text, int min, int max)
         {
             if (text.Length >= min && text.Length <= max)
