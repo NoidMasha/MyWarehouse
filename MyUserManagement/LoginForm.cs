@@ -121,6 +121,7 @@ namespace MyUserManagement
                 if (foundedUser.NeedPassChange)
                 {
                     ChangePasswordForm changePass = new ChangePasswordForm();
+                    changePass.oldPasswordText = "12345678";
                     changePass.ShowDialog();
                 }
 

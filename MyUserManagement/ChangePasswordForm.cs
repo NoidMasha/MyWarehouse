@@ -11,6 +11,13 @@ namespace MyUserManagement
             //confirmPasswordTextBox.WaterMarkText = "Retype password";
         }
 
+        public string oldPasswordText
+        {
+            set
+            {
+                oldPasswordTextBox.Text = value;
+            }
+        }
         private void ChangePasswordForm_Load(object sender, System.EventArgs e)
         {
         }

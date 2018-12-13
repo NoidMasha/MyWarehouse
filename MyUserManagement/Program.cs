@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Runtime.Serialization.Formatters;
 
 namespace MyUserManagement
 {
@@ -74,6 +75,8 @@ namespace MyUserManagement
 
             #region Runing Startup Form and then Disposing!
             LoginForm startupForm = Infrastructure.Utility.LoginForm;
+
+
 
             System.Windows.Forms.Application.Run(startupForm);
             
